@@ -1,0 +1,84 @@
+# -----------------------------
+# Python
+# -----------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+.eggs/
+*.egg-info/
+*.egg
+
+# Virtual Environment
+venv/
+.env/
+ENV/
+
+# -----------------------------
+# Environment / Secrets
+# -----------------------------
+.env
+.env.*
+*.env
+secrets.json
+
+# -----------------------------
+# IDE / Editor
+# -----------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# -----------------------------
+# OS Files
+# -----------------------------
+.DS_Store
+Thumbs.db
+
+# -----------------------------
+# Logs
+# -----------------------------
+*.log
+logs/
+
+# -----------------------------
+# Jupyter / Notebook
+# -----------------------------
+.ipynb_checkpoints/
+
+# -----------------------------
+# Testing / Coverage
+# -----------------------------
+.coverage
+htmlcov/
+.pytest_cache/
+
+# -----------------------------
+# Ollama / Local model cache
+# -----------------------------
+ollama_models/
+*.gguf
+
+# -----------------------------
+# Embeddings / Vector cache
+# -----------------------------
+*.npy
+vector_store/
+embeddings_cache/
+
+# -----------------------------
+# Data dumps / temp files
+# -----------------------------
+data/
+tmp/
+*.csv
+*.json
+
+# -----------------------------
+# LangChain / LangGraph traces
+# -----------------------------
+.traces/
