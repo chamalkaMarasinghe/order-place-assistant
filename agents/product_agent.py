@@ -36,11 +36,16 @@ def product_agent(state):
         - Select the best 3 matching products
         - Each item must contain: id, title, price
 
-        Return format example:
+
+        Required JSON format:
         [
-        {{"id": 1, "title": "Product name", "price": 10.5}}
+            {{"id": number, "title": string, "price": number}}
         ]
         """
+        # Return format example:
+        # [
+        # {{"id": 1, "title": "Product name", "price": 10.5}}
+        # ]
 
     response = llm.invoke(prompt)
 
