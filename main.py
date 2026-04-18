@@ -1,10 +1,7 @@
 from langgraph.graph import StateGraph
 from agents.product_agent import product_agent
 from agents.order_agent import order_agent
-
-def log(step):
-    with open("logs.txt", "a") as f:
-        f.write(step + "\n")
+from logger.logger import log
 
 def run():
     user_query = input("\n\nWhat product do you want? ")
@@ -16,11 +13,9 @@ def run():
     }
 
     log("Starting Product Agent")
-    # print("starting product agent")
     state = product_agent(state)
 
     log("Starting Order Agent")
-    # print("starting order agent")
     state = order_agent(state)
 
     log(f"Finished with status: {state['order_status']}")
