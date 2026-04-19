@@ -11,9 +11,18 @@ import json
 llm = Ollama(model="llama3:8b")
 
 def product_agent(state):
+
+    if state.get("filtered_products"):
+        return state
+    
+    state["filtered_products"] = None
+
+    log("Starting Product Agent")
     
     plan = state["planner_output"]
     query = state["user_query"]
+
+    log("Finding best products for the query: " + state["user_query"])
 
     # Executing the retrieval plan according to the LLM's decision specfication and fetchin the relavnt products
     products = execute_retrieval_plan(plan)

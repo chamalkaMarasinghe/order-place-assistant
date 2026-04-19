@@ -7,6 +7,17 @@ import json
 llm = Ollama(model="llama3:8b")
 
 def order_agent(state):
+
+    if "order_status" not in state:
+        state["order_status"] = None
+
+    if not state.get("order_text"):
+        return state
+
+    if state.get("order_status"):
+        return state
+
+    log("Starting Order Agent")
     
     products = state["filtered_products"]
 

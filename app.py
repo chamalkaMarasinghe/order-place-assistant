@@ -1,13 +1,15 @@
 import streamlit as st
 from langgraph.graph import StateGraph
-from agents.product_agent import product_agent
+from orchestrator import graph
 from agents.order_agent import order_agent
-from agents.retrieval_planner_agent import retrieval_planner_agent
+
 from logger.logger import log
 import json
 
 st.set_page_config(page_title="AI Shopping Assistant", layout="wide")
 st.title("🛒 AI Product Recommender")
+
+# app = build_graph()
 
 # -----------------------------
 # STEP 1 — Product Search
@@ -18,22 +20,15 @@ if st.button("Find Products") and query:
 
     state = {
         "user_query": query,
-        "filtered_products": None,
-        "order_status": None
     }
 
-    log("Starting Retrieval Planner Agent")
-    state = retrieval_planner_agent(state)
-
-    log("Starting Product Agent")
-    log("Finding best products for the query: " + state["user_query"])
-    state = product_agent(state)
+    # Run graph
+    state = graph.invoke(state)
 
     # product_agent currently returns JSON string from LLM
     products = json.loads(state["filtered_products"])
     st.session_state["products"] = products
     st.session_state["state"] = state
-
 
 # -----------------------------
 # STEP 2 — Show Products
@@ -66,8 +61,9 @@ if "products" in st.session_state:
         state["order_text"] = order_text
         state["email"] = email
 
-        log("Starting Order Agent")
         state = order_agent(state)
+
+        st.session_state["state"] = state
 
         if state["order_status"] == "failed" :
             st.error("Failed to place order. Please try again.")

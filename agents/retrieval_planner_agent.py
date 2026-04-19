@@ -12,6 +12,12 @@ llm = Ollama(model="llama3:8b")
 
 def retrieval_planner_agent(state):
 
+    if state.get("planner_output"):
+        return state
+    state["planner_output"] = None
+
+    log("Starting Retrieval Planner Agent")
+
     query = state["user_query"]
 
     available_categories = get_categories();
