@@ -25,3 +25,57 @@
 [2026-04-20 04:13:48] tool invoking - Save order and update orders.json
 [2026-04-20 04:13:48] tool invoking - Sending confirmation mail
 [2026-04-20 04:13:52] Finished with status: confirmed
+
+[2026-04-20 04:39:15] Starting Retrieval Planner Agent
+[2026-04-20 04:40:25] product retrivel planner LLM response
+[2026-04-20 04:40:25] {"strategy": "category", "value": "groceries", "pages": 2}
+
+[2026-04-20 04:40:25] Starting Retrieval Planner Agent
+[2026-04-20 04:41:33] product retrivel planner LLM response
+[2026-04-20 04:41:33] {"strategy":"category", "value":"smartphones", "pages":1}
+
+[2026-04-20 04:41:33] Starting Retrieval Planner Agent
+[2026-04-20 04:42:48] product retrivel planner LLM response
+[2026-04-20 04:42:48] {"strategy": "category", "value": "kitchen-accessories", "pages": 2}
+
+[2026-04-20 04:42:48] Starting Retrieval Planner Agent
+[2026-04-20 04:44:12] product retrivel planner LLM response
+[2026-04-20 04:44:12] {"strategy": "category", "value": "gifts", "pages": 2}
+[2026-04-20 04:51:05] Starting Product Agent
+[2026-04-20 04:51:05] Finding best products for the query: tea snacks
+[2026-04-20 04:51:05] tool invoking - Execute retrieval plan
+[2026-04-20 04:51:06] tool invoking - Build product embeddings
+[2026-04-20 04:51:06] tool invoking - Semantic search for product retrieval
+[2026-04-20 04:52:58] Best relavance products LLM response
+[2026-04-20 04:52:58] [
+    {"id": 75, "title": "Tray", "price": 16.99},
+    {"id": 21, "title": "Cucumber", "price": 1.49}
+]
+
+[2026-04-20 04:59:10] Starting Retrieval Planner Agent
+[2026-04-20 05:00:07] product retrivel planner LLM response
+[2026-04-20 05:00:07] {"strategy": "category", "value": "footwares", "pages": 1}
+[2026-04-20 05:00:07] Starting Product Agent
+[2026-04-20 05:00:07] Finding best products for the query: rought footwares
+[2026-04-20 05:00:07] tool invoking - Execute retrieval plan
+[2026-04-20 05:00:08] tool invoking - Build product embeddings
+[2026-04-20 05:00:08] tool invoking - Semantic search for product retrieval
+
+[2026-04-20 05:01:28] Starting Retrieval Planner Agent
+[2026-04-20 05:02:22] product retrivel planner LLM response
+[2026-04-20 05:02:22] {"strategy": "category", "value": "mens-shoes", "pages": 2}
+[2026-04-20 05:02:22] Starting Product Agent
+[2026-04-20 05:02:22] Finding best products for the query: mens shoes
+[2026-04-20 05:02:22] tool invoking - Execute retrieval plan
+[2026-04-20 05:02:24] tool invoking - Build product embeddings
+[2026-04-20 05:02:24] tool invoking - Semantic search for product retrieval
+[2026-04-20 05:11:56] Best relavance products LLM response
+[2026-04-20 05:11:56] [
+    {"id": 92, "title": "Sports Sneakers Off White Red", "price": 109.99},
+    {"id": 90, "title": "Puma Future Rider Trainers", "price": 89.99},
+    {"id": 91, "title": "Sports Sneakers Off White & Red", "price": 119.99}
+]
+[2026-04-20 05:12:43] Starting Order Agent
+[2026-04-20 05:13:16] tool invoking - Save order and update orders.json
+[2026-04-20 05:13:16] tool invoking - Sending confirmation mail
+[2026-04-20 05:13:20] Finished with status: confirmed
