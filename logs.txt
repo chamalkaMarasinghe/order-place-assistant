@@ -85,3 +85,105 @@ Finished with status: cancelled
 ]
 [2026-04-19 16:28:48] Starting Order Agent
 [2026-04-19 16:29:25] Finished with status: confirmed
+[2026-04-19 21:44:52] Starting Retrieval Planner Agent
+[2026-04-19 21:45:55] product retrivel planner LLM response
+[2026-04-19 21:45:55] {"strategy": "category", "value": "skin-care", "pages": 2}
+[2026-04-19 21:45:55] Starting Product Agent
+[2026-04-19 21:45:55] Finding best products for the query: I'm really disappointed with dark spots in my face
+[2026-04-19 21:48:17] Starting Retrieval Planner Agent
+[2026-04-19 21:48:24] product retrivel planner LLM response
+[2026-04-19 21:48:24] {"strategy": "category", "value": "skin-care", "pages": 2}
+[2026-04-19 21:48:24] Starting Product Agent
+
+[2026-04-19 22:01:56] Starting Retrieval Planner Agent
+[2026-04-19 22:03:00] product retrivel planner LLM response
+[2026-04-19 22:03:00] {
+"strategy": "category",
+"value": "skin-care",
+"pages": 1
+}
+[2026-04-19 22:03:00] Starting Product Agent
+
+[2026-04-19 22:07:54] Starting Retrieval Planner Agent
+[2026-04-19 22:08:01] product retrivel planner LLM response
+[2026-04-19 22:08:01] {"strategy": "category", "value": "skin-care", "pages": 2}
+[2026-04-19 22:08:01] Starting Product Agent
+[2026-04-19 22:08:01] Finding best products for the query: I'm really disappointed with dark spots in my face
+
+[2026-04-19 22:20:46] Starting Retrieval Planner Agent
+[2026-04-19 22:21:52] product retrivel planner LLM response
+[2026-04-19 22:21:52] {"strategy": "category", "value": "skin-care", "pages": 1}
+[2026-04-19 22:21:52] Starting Product Agent
+[2026-04-19 22:21:52] Finding best products for the query: I'm really disappointed with dark spots in my face
+[2026-04-19 22:21:52] Product Agent received state:
+[2026-04-19 22:21:52] plan
+[2026-04-19 22:21:52] {'strategy': 'category', 'value': 'skin-care', 'pages': 1}
+[2026-04-19 22:21:52] query
+[2026-04-19 22:21:52] I'm really disappointed with dark spots in my face
+[2026-04-19 22:25:29] Best relavance products LLM response
+[2026-04-19 22:25:29] [
+    {"id": 120, "title": "Vaseline Men Body and Face Lotion", "price": 9.99},
+    {"id": 119, "title": "Olay Ultra Moisture Shea Butter Body Wash", "price": 12.99},
+    {"id": 118, "title": "Attitude Super Leaves Hand Soap", "price": 8.99}
+]
+
+[2026-04-19 22:38:04] Starting Retrieval Planner Agent
+[2026-04-19 22:39:06] product retrivel planner LLM response
+[2026-04-19 22:39:06] {"strategy": "category", "value": "skin-care", "pages": 2}
+[2026-04-19 22:39:06] Starting Product Agent
+[2026-04-19 22:39:06] Finding best products for the query: I'm really disappointed with dark spots in my face
+[2026-04-19 22:39:06] Product Agent received state:
+[2026-04-19 22:39:06] plan
+[2026-04-19 22:39:06] {'strategy': 'category', 'value': 'skin-care', 'pages': 2}
+[2026-04-19 22:39:06] query
+[2026-04-19 22:39:06] I'm really disappointed with dark spots in my face
+[2026-04-19 22:42:40] Best relavance products LLM response
+[2026-04-19 22:42:40] [
+    {"id": 120, "title": "Vaseline Men Body and Face Lotion", "price": 9.99},
+    {"id": 119, "title": "Olay Ultra Moisture Shea Butter Body Wash", "price": 12.99},
+    {"id": 118, "title": "Attitude Super Leaves Hand Soap", "price": 8.99}
+]
+[2026-04-19 22:42:40] User order input
+[2026-04-19 22:42:40] 
+[2026-04-19 22:42:40] User email input
+[2026-04-19 22:42:40] 
+[2026-04-19 22:44:06] User order input
+[2026-04-19 22:44:06] three body wash and two face lotion
+[2026-04-19 22:44:06] User email input
+[2026-04-19 22:44:06] 
+[2026-04-19 22:44:20] User order input
+[2026-04-19 22:44:20] three body wash and two face lotion
+[2026-04-19 22:44:20] User email input
+[2026-04-19 22:44:20] chamalkamarasinghe11@gmail.com
+[2026-04-19 22:44:48] User order input
+[2026-04-19 22:44:48] three body wash and two face lotion
+[2026-04-19 22:44:48] User email input
+[2026-04-19 22:44:48] chamalkamarasinghe11@gmail.com
+[2026-04-19 22:44:48] Placing order with Order Agent
+[2026-04-19 22:44:48] Starting Order Agent
+
+[2026-04-19 22:48:13] Starting Retrieval Planner Agent
+[2026-04-19 22:49:12] product retrivel planner LLM response
+[2026-04-19 22:49:13] {"strategy": "category", "value": "skin-care", "pages": 2}
+[2026-04-19 22:49:13] Starting Product Agent
+[2026-04-19 22:49:13] Finding best products for the query: I'm really disappointed with dark spots in my face
+[2026-04-19 22:49:13] Product Agent received state:
+[2026-04-19 22:49:13] plan
+[2026-04-19 22:49:13] {'strategy': 'category', 'value': 'skin-care', 'pages': 2}
+[2026-04-19 22:49:13] query
+[2026-04-19 22:49:13] I'm really disappointed with dark spots in my face
+[2026-04-19 22:53:46] Best relavance products LLM response
+[2026-04-19 22:53:46] [
+    {"id": 120, "title": "Vaseline Men Body and Face Lotion", "price": 9.99},
+    {"id": 119, "title": "Olay Ultra Moisture Shea Butter Body Wash", "price": 12.99},
+    {"id": 118, "title": "Attitude Super Leaves Hand Soap", "price": 8.99}
+]
+[2026-04-19 22:56:02] Starting Order Agent
+[2026-04-19 22:56:02] Order Agent received state:
+[2026-04-19 22:56:02] products
+[2026-04-19 22:56:02] [{'id': 120, 'title': 'Vaseline Men Body and Face Lotion', 'price': 9.99}, {'id': 119, 'title': 'Olay Ultra Moisture Shea Butter Body Wash', 'price': 12.99}, {'id': 118, 'title': 'Attitude Super Leaves Hand Soap', 'price': 8.99}]
+[2026-04-19 22:56:02] user_order_text
+[2026-04-19 22:56:02] three body wash and two face lotion
+[2026-04-19 22:56:02] email
+[2026-04-19 22:56:02] chamalkamarasinghe11@gmail.com
+[2026-04-19 22:56:37] Finished with status: confirmed

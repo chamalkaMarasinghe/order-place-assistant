@@ -8,13 +8,6 @@ model = SentenceTransformer("all-MiniLM-L6-v2")
 
 BASE_URL = "https://dummyjson.com/products"
 
-
-def fetch_products():
-    """Fetch all products from Fake Store API"""
-    url = "https://fakestoreapi.com/products"
-    response = requests.get(url)
-    return response.json()
-
 def get_categories():
     """Return list of all categories."""
     url = f"{BASE_URL}/category-list"

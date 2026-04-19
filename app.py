@@ -2,6 +2,7 @@ import streamlit as st
 from langgraph.graph import StateGraph
 from agents.product_agent import product_agent
 from agents.order_agent import order_agent
+from agents.retrieval_planner_agent import retrieval_planner_agent
 from logger.logger import log
 import json
 
@@ -15,14 +16,17 @@ query = st.text_input("What product do you want?")
 
 if st.button("Find Products") and query:
 
-    # state = {"user_query": query}
     state = {
         "user_query": query,
         "filtered_products": None,
         "order_status": None
     }
 
+    log("Starting Retrieval Planner Agent")
+    state = retrieval_planner_agent(state)
+
     log("Starting Product Agent")
+    log("Finding best products for the query: " + state["user_query"])
     state = product_agent(state)
 
     # product_agent currently returns JSON string from LLM
@@ -53,7 +57,6 @@ if "products" in st.session_state:
 
     order_text = st.text_area(
         "Enter your order in plain English",
-        placeholder="Example: I want 2 of product 8 and 1 rose gold plated item"
     )
 
     email = st.text_input("Enter your email")
@@ -66,5 +69,9 @@ if "products" in st.session_state:
         log("Starting Order Agent")
         state = order_agent(state)
 
-        st.success("Order placed and confirmation email sent!")
+        if state["order_status"] == "failed" :
+            st.error("Failed to place order. Please try again.")
+        else:
+            st.success("Order placed and confirmation email sent!")
+
         log(f"Finished with status: {state['order_status']}")

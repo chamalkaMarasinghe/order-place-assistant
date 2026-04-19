@@ -1,12 +1,13 @@
 from langchain_community.llms import Ollama
 from tools.file_tool import save_order
 from tools.email_tool import send_email
+from logger.logger import log
 import json
 
 llm = Ollama(model="llama3:8b")
 
 def order_agent(state):
-
+    
     products = state["filtered_products"]
 
     products = print_products(products)
@@ -18,7 +19,6 @@ def order_agent(state):
     structured_order = parse_order_with_llm(user_order_text, products)
 
     if not structured_order:
-        print("Could not understand order. Please try again.")
         state["order_status"] = "failed"
         return state
 
@@ -37,7 +37,7 @@ def order_agent(state):
     return state
 
 def parse_order_with_llm(user_input, products):
-    prompt = f"""
+    system_prompt = f"""
         You are an order extraction system.
 
         User ordered items in natural language:
@@ -68,7 +68,7 @@ def parse_order_with_llm(user_input, products):
         ]
     """
 
-    response = llm.invoke(prompt)
+    response = llm.invoke(system_prompt)
 
     try:
         return json.loads(response)
