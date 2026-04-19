@@ -117,5 +117,23 @@
     ],
     "email": "chamalkamarasinghe11@gmail.com",
     "timestamp": "2026-04-19 16:09:15.379985"
+  },
+  {
+    "product": [
+      {
+        "id": 82,
+        "title": "New DELL XPS 13 9300 Laptop",
+        "price": 1499.99,
+        "quantity": 3
+      },
+      {
+        "id": 80,
+        "title": "Huawei Matebook X Pro",
+        "price": 1399.99,
+        "quantity": 2
+      }
+    ],
+    "email": "chamalkamarasinghe11@gmail.com",
+    "timestamp": "2026-04-19 16:29:20.804998"
   }
 ]
