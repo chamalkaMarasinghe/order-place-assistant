@@ -9,4 +9,6 @@ pip install -r requirements.txt
 ollama pull llama3:8b
 
 ## Run the application
-python main.py
+streamlit run app.py - GUI
+OR
+python main.py - CLI
