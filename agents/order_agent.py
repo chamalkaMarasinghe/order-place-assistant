@@ -11,33 +11,28 @@ def order_agent(state):
 
     products = print_products(products)
 
-    confirm = input("\nDo you want to place the order? (yes/no): ")
+    user_order_text = state["order_text"]
+    email = state["email"]
 
-    if confirm.lower() == "yes":
+    # parsing the user ordered natural text with LLM to extract structured order information (product id, title, price, quantity) based on the products that were recommended to the user. The LLM will return a JSON array with the structured order details.
+    structured_order = parse_order_with_llm(user_order_text, products)
 
-        # natural language order input
-        user_order_text = input("\nDescribe your order : ")
+    if not structured_order:
+        print("Could not understand order. Please try again.")
+        state["order_status"] = "failed"
+        return state
 
-        structured_order = parse_order_with_llm(user_order_text, products)
+    state["structured_order"] = structured_order
 
-        if not structured_order:
-            print("Could not understand order. Please try again.")
-            state["order_status"] = "failed"
-            return state
+    order = {
+        "product": structured_order,
+        "email": email
+    }
 
-        email = input("Enter your email: ")
+    save_order(order)
+    send_email(email, order)
 
-        order = {
-            "product": structured_order,
-            "email": email
-        }
-
-        save_order(order)
-        send_email(email, order)
-
-        state["order_status"] = "confirmed"
-    else:
-        state["order_status"] = "cancelled"
+    state["order_status"] = "confirmed"
 
     return state
 
