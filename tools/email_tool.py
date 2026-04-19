@@ -1,8 +1,18 @@
 import smtplib
 from email.mime.text import MIMEText
+from logger.logger import log
+from typing import Dict
 
-def send_email(to_email: str, content: str):
-    """Send confirmation email"""
+def send_email(to_email: str, content: str) -> None:
+    """
+    Send a confirmation email to the specified recipient.
+
+    Args:
+        to_email (str): Recipient's email address.
+        content (str): Content of the email.
+    """
+    log("tool invoking - Sending confirmation mail")
+
     sender = "cmal553@gmail.com"
     password = "zvlymgydojaiklyh"
 
@@ -20,7 +30,16 @@ def send_email(to_email: str, content: str):
     server.sendmail(sender, to_email, msg.as_string())
     server.quit()
 
-def generate_order_email_body(order: dict) -> str:
+def generate_order_email_body(order: Dict) -> str:
+    """
+    Generate the body of the order confirmation email.
+
+    Args:
+        order (Dict): Dictionary containing order details.
+
+    Returns:
+        str: Formatted email body.
+    """
     products = order.get("product", [])
     email = order.get("email", "N/A")
     timestamp = order.get("timestamp", "N/A")

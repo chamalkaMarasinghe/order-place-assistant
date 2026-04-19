@@ -1,8 +1,8 @@
 import requests
-
 import numpy as np
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
+from logger.logger import log
 
 model = SentenceTransformer("all-MiniLM-L6-v2")
 
@@ -12,7 +12,7 @@ def get_categories():
     """Return list of all categories."""
     url = f"{BASE_URL}/category-list"
     res = requests.get(url)
-    return res.json()  # e.g. ["smartphones", "laptops", ...]
+    return res.json() 
 
 def search_products(query: str, limit=30, skip=0):
     """Use API search endpoint."""
@@ -33,6 +33,9 @@ def get_products_page(limit=30, skip=0):
     return res.json().get("products", [])
 
 def execute_retrieval_plan(plan):
+
+    log("tool invoking - Execute retrieval plan")
+
     strategy = plan.get("strategy")
     value = plan.get("value", "")
     pages = plan.get("pages", 1)
@@ -52,6 +55,9 @@ def execute_retrieval_plan(plan):
 
 
 def build_product_embeddings(products):
+
+    log("tool invoking - Build product embeddings")
+    
     texts = [
         f"{p['title']} {p['description']} {p['category']} price {p['price']}"
         for p in products
@@ -61,6 +67,9 @@ def build_product_embeddings(products):
 
 
 def semantic_search(query, products, embeddings, top_k=8):
+
+    log("tool invoking - Semantic search for product retrieval")
+
     query_vec = model.encode([query])
     sims = cosine_similarity(query_vec, embeddings)[0]
     top_idx = np.argsort(sims)[-top_k:][::-1]
